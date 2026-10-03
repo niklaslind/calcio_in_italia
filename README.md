@@ -1,35 +1,41 @@
-# Calcio in Italia 🇮🇹 ⚽
+# Calcio in Italia
 
-Un portale interattivo dedicato al calcio italiano: Serie A, club storici, trofei, derby leggendari e statistiche.
+An English football-trip planner for four cousins travelling from Stockholm to Italy in October, November or December **2026**.
 
-## 🌐 Live Demo su GitHub Pages
+**Site:** https://niklaslind.github.io/calcio_in_italia/
 
-Il sito è configurato per essere pubblicato tramite GitHub Pages:
+## The Planner
 
-🔗 **[https://niklaslind.github.io/calcio_in_italia/](https://niklaslind.github.io/calcio_in_italia/)**
+- A searchable team shortlist, sortable by reference league, with city and official club links.
+- A month, team and route-filtered match calendar with an explicit verification status.
+- Nine travel routes: Nice-Monaco-Sanremo, Lake Como and Switzerland, Venice from the mainland, Sicily, Piedmont, Emilia, Tuscany, Naples and Puglia.
+- Suggested bases, football options, flights and rail connections, official timetable links, sightseeing and seasonal cautions.
 
----
+## Data Limitations
 
-## ✨ Funzionalità del Demo
+Official fixture sources were inaccessible during research on 3 October 2026. **There are no verified October-December 2026 fixtures in this site yet.** Empty calendar results do not mean no games are scheduled. Club and league links are starting points, not verified live schedules.
 
-- **Classifica Serie A Interattiva**: Punti, statistiche (G, V, N, P, DR), indicatori per zona Champions League, Europa League e retrocessione, badge di forma recente.
-- **Schede Club Dettagliate**: Juventus, Inter, Milan, Napoli, Atalanta, Roma, Lazio, Fiorentina, Bologna, Torino con informazioni su stadi, capienza, trofei vinti e leggende.
-- **Ricerca in Tempo Reale**: Filtro rapido delle squadre per nome, città o soprannome.
-- **I Grandi Derby d'Italia**: Approfondimenti e statistiche sui match storici (*Derby della Madonnina*, *Derby d'Italia*, *Derby della Capitale*, *Derby del Sole*).
-- **Albo d'Oro & Storia**: Grafico di riepilogo degli Scudetti vinti dal 1898 ad oggi e approfondimento sulla cultura del calcio in Italia.
-- **Design Moderno e Responsivo**: Ottimizzato per dispositivi desktop, tablet e mobile con palette scura e dettagli con tricolore italiano.
+Team divisions are explicitly labelled **2024/25 historical references**, not current 2026/27 membership. Confirm promotion/relegation, venue, opponent, date, kickoff and ticket availability before booking. Flight routes and rail journeys are planning suggestions, not confirmed services or departure times.
 
----
+The source brief is `ai-instructions.org`. The site is plain HTML, CSS and JavaScript with no build step, API keys or runtime dependencies. Route/team content is in `js/app.js`; styling is in `css/style.css`.
 
-## 🚀 Configurazione GitHub Pages
+To populate the calendar, add sourced entries to `fixtures` in `js/app.js` using its documented schema. Include the actual competition and venue, both team names, the shortlisted club IDs, an ISO date, local kickoff (or `null`) and an official source URL. Do not populate future fixtures by extrapolating old schedules. Update the verification notices in `index.html` and this README when research coverage changes.
 
-Il sito è pronto per essere servito direttamente tramite GitHub Pages:
+## Preview and Check
 
-1. Su GitHub, vai in **Settings** > **Pages** del repository `niklaslind/calcio_in_italia`.
-2. Sotto **Build and deployment**:
-   - **Source**: seleziona **Deploy from a branch**.
-   - **Branch**: seleziona **`main`** (o **`gh-pages`**) e cartella **`/ (root)`**.
-3. Clicca su **Save**.
+Serve the repository using any local static HTTP server, for example `npx http-server .`, then open the local URL it prints. Check team search, league sorting, route filtering, all three calendar months and route links on desktop and mobile.
 
-Il sito sarà pubblicato all'indirizzo:
-👉 **[https://niklaslind.github.io/calcio_in_italia/](https://niklaslind.github.io/calcio_in_italia/)**
+```sh
+node --check js/app.js
+git diff --check
+```
+
+## Publishing
+
+GitHub Pages currently publishes the **root of `gh-pages`**, not `main`. `.nojekyll` keeps this a plain static site. After reviewing and committing changes on `main`, publish the same commit to both branches:
+
+```sh
+git push origin main main:gh-pages
+```
+
+Use a normal fast-forward push; if either branch has diverged, inspect and reconcile it rather than force-pushing. No custom GitHub Actions workflow is needed.

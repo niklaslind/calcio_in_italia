@@ -1,241 +1,89 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calcio in Italia | Il Portale del Calcio Italiano</title>
-  <meta name="description" content="Esplora la passione, le squadre, la classifica e la storia del calcio italiano. Serie A, trofei e grandi rivalità.">
+  <title>Calcio in Italia | Four Cousins, One Football Trip</title>
+  <meta name="description" content="An Italy football trip planner for four cousins from Stockholm: local clubs, an October to December 2026 fixture watchlist, and nine rail-friendly routes.">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22 width=%2232%22 height=%2232%22><text y=%2226%22 font-size=%2226%22>⚽</text></svg>">
+  <script src="js/app.js" defer></script>
 </head>
 <body>
-
-  <!-- Tricolore Accent Top Bar -->
-  <div class="tricolore-bar">
-    <div class="tricolore-green"></div>
-    <div class="tricolore-white"></div>
-    <div class="tricolore-red"></div>
-  </div>
-
-  <!-- Navigation Bar -->
-  <nav class="navbar">
+  <a class="skip-link" href="#main">Skip to trip planner</a>
+  <div class="tricolore-bar" aria-hidden="true"></div>
+  <header class="navbar">
     <div class="nav-container">
-      <a href="#" class="brand">
-        <div class="brand-icon">⚽</div>
-        <div>
-          <div class="brand-title">CALCIO IN <span>ITALIA</span></div>
-          <span class="nav-tagline">Il Gioco Più Bello Del Mondo</span>
-        </div>
-      </a>
-      <div class="nav-badges">
-        <span class="live-badge">
-          <span class="live-dot"></span>
-          Serie A 2026/27
-        </span>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Header -->
-  <header class="hero">
-    <div class="hero-glow"></div>
-    <div class="hero-content">
-      <div class="hero-pill">
-        <span>🇮🇹</span>
-        <span>Passione, Tattica, Tradizione & Leggenda</span>
-      </div>
-      <h1>
-        L'Essenza del <span class="hero-highlight">Calcio Italiano</span>
-      </h1>
-      <p>
-        Dalla nebbia di San Siro al calore del Maradona: vivi l'atmosfera autentica della Serie A, i grandi derby, le squadre storiche e l'albo d'oro del campionato più tattico del mondo.
-      </p>
-
-      <div class="hero-stats">
-        <div class="stat-card">
-          <span class="stat-number">20</span>
-          <span class="stat-label">Club di Serie A</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-number">4</span>
-          <span class="stat-label">Mondiali Vinti</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-number">12</span>
-          <span class="stat-label">Coppe Campioni / UCL</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-number">126+</span>
-          <span class="stat-label">Anni di Storia</span>
-        </div>
-      </div>
+      <a href="#" class="brand">CALCIO IN <span>ITALIA</span><small>The cousins' travel notebook</small></a>
+      <nav aria-label="Main navigation">
+        <a href="#teams">Teams</a><a href="#calendar">Game calendar</a><a href="#routes">Travel routes</a>
+      </nav>
     </div>
   </header>
-
-  <!-- Main Content Area -->
-  <main class="container">
-    
-    <!-- Tab Controls & Search -->
-    <div class="tabs-wrapper">
-      <div class="tabs-list" role="tablist">
-        <button class="tab-btn active" data-tab="tab-standings" role="tab" aria-selected="true">📊 Classifica</button>
-        <button class="tab-btn" data-tab="tab-clubs" role="tab" aria-selected="false">🛡️ Squadre</button>
-        <button class="tab-btn" data-tab="tab-matches" role="tab" aria-selected="false">🔥 Grandi Derby</button>
-        <button class="tab-btn" data-tab="tab-history" role="tab" aria-selected="false">🏆 Albo d'Oro</button>
-      </div>
-
-      <div class="search-box">
-        <span class="search-icon">🔍</span>
-        <input type="text" id="club-search" class="search-input" placeholder="Cerca squadra o città...">
+  <section class="hero" aria-labelledby="page-title">
+    <div class="hero-content">
+      <p class="eyebrow">STOCKHOLM &rarr; ITALY &rarr; STOCKHOLM / AUTUMN 2026</p>
+      <h1 id="page-title">Four cousins.<br>One match. <span>A little Italy.</span></h1>
+      <p>Small grounds, long lunches, a coastal ride or a walk in the hills. A football-first escape for four cousins in their 50s and 60s, with time to enjoy the journey.</p>
+      <a class="button" href="#routes">Explore the nine routes &darr;</a>
+      <div class="hero-stats">
+        <div><strong>04</strong><span>Travellers</span></div>
+        <div><strong>09</strong><span>Route ideas</span></div>
+        <div><strong>Oct&ndash;Dec</strong><span>2026 travel window</span></div>
+        <div><strong>A &middot; B &middot; C &middot; D</strong><span>Big nights, local grounds</span></div>
       </div>
     </div>
+  </section>
+  <main id="main" class="container" tabindex="-1">
+    <aside class="notice" aria-labelledby="status-title">
+      <h2 id="status-title">A planning notebook, not a confirmed match itinerary</h2>
+      <p>Research attempted on 3 October 2026. Official fixture pages could not be accessed during this update. No October&ndash;December 2026 fixtures have been verified here. That does <strong>not</strong> mean they are unpublished or that no games are scheduled. Check the official sources before booking.</p>
+    </aside>
+    <div class="planner-filter">
+      <label for="route-filter">Focus the teams and calendar on a route</label>
+      <select id="route-filter"><option value="all">All nine routes</option></select>
+      <p>Every route starts and ends in Stockholm. Flights and rail journeys below are suggestions, not confirmed departures.</p>
+    </div>
 
-    <!-- Tab 1: Standings -->
-    <section id="tab-standings" class="tab-panel active" role="tabpanel">
-      <div class="section-header">
-        <div>
-          <h2>📊 Classifica Serie A</h2>
-          <p>Riepilogo posizioni, punti e forma recente del massimo campionato italiano</p>
-        </div>
+    <section id="teams" aria-labelledby="teams-title">
+      <div class="section-header"><div><p class="eyebrow">01 / THE FOOTBALL</p><h2 id="teams-title">Teams worth a detour</h2><p>Start with a local ground. Keep a bigger club as an alternative.</p></div></div>
+      <p id="league-note" class="source-note">League labels are <strong>2024/25 reference divisions</strong>, not verified 2026/27 membership. Promotion, relegation and club changes must be checked. Serie A is tier 1; B is tier 2; C is tier 3; D is tier 4. Nice and Monaco play in the French system.</p>
+      <div class="controls">
+        <label for="team-search">Find a team or city<input id="team-search" type="search" placeholder="Try Sanremo, Lecco or Palermo"></label>
+        <label for="league-filter">Reference league<select id="league-filter"><option value="all">All leagues</option><option>Serie A</option><option>Serie B</option><option>Serie C</option><option>Serie D</option><option>Ligue 1</option></select></label>
+        <p id="team-count" role="status"></p>
       </div>
-
-      <div class="table-card">
-        <div class="table-responsive">
-          <table class="standings-table">
-            <thead>
-              <tr>
-                <th style="width: 40px;">Pos</th>
-                <th>Squadra</th>
-                <th>G</th>
-                <th>V</th>
-                <th>N</th>
-                <th>P</th>
-                <th>DR</th>
-                <th>Pt</th>
-                <th>Forma</th>
-              </tr>
-            </thead>
-            <tbody id="standings-body">
-              <!-- Dynamically populated via JS -->
-            </tbody>
-          </table>
-        </div>
-        <div class="table-legend">
-          <div class="legend-item">
-            <span class="legend-dot legend-ucl"></span>
-            <span>1-4: UEFA Champions League</span>
-          </div>
-          <div class="legend-item">
-            <span class="legend-dot legend-uel"></span>
-            <span>5-6: UEFA Europa League / Conference</span>
-          </div>
-          <div class="legend-item">
-            <span class="legend-dot legend-rel"></span>
-            <span>18-20: Zona Retrocessione Serie B</span>
-          </div>
-        </div>
-      </div>
+      <div class="table-card"><div class="table-responsive" tabindex="0" role="region" aria-label="Teams table, scroll horizontally on small screens">
+        <table aria-describedby="league-note"><caption>Club shortlist and official sources</caption><thead><tr><th scope="col">Team</th><th scope="col">Home city</th><th scope="col" id="league-heading" aria-sort="ascending"><button id="league-sort" type="button">Reference league &uarr;</button></th><th scope="col">Why go?</th><th scope="col">Route</th></tr></thead><tbody id="teams-body"></tbody></table>
+      </div></div>
     </section>
 
-    <!-- Tab 2: Clubs Showcase -->
-    <section id="tab-clubs" class="tab-panel" role="tabpanel">
-      <div class="section-header">
-        <div>
-          <h2>🛡️ Squadre in Evidenza</h2>
-          <p>I club più iconici del calcio italiano con trofei, stadi e curiosità storiche</p>
-        </div>
+    <section id="calendar" aria-labelledby="calendar-title" tabindex="-1">
+      <div class="section-header"><div><p class="eyebrow">02 / PICK THE MATCH FIRST</p><h2 id="calendar-title">Game calendar</h2><p>October, November and December 2026. Times, when verified, are local to the venue.</p></div><span class="badge warning">Verification pending</span></div>
+      <div class="controls">
+        <label for="month-filter">Month<select id="month-filter"><option value="all">October - December 2026</option><option value="10">October 2026</option><option value="11">November 2026</option><option value="12">December 2026</option></select></label>
+        <label for="calendar-team">Team<select id="calendar-team"><option value="all">All teams on this route</option></select></label>
       </div>
-
-      <div id="clubs-grid" class="clubs-grid">
-        <!-- Dynamically populated via JS -->
-      </div>
+      <p id="fixture-count" role="status" class="source-note"></p>
+      <div class="table-card"><div class="table-responsive" tabindex="0" role="region" aria-label="Match calendar, scroll horizontally on small screens">
+        <table><caption>Verified fixtures only; source checklist below is not a match schedule</caption><thead><tr><th scope="col">Date / local kickoff</th><th scope="col">Teams</th><th scope="col">Place</th><th scope="col">League</th><th scope="col">Source</th></tr></thead><tbody id="fixtures-body"></tbody></table>
+      </div></div>
+      <details class="source-checklist" open><summary>Find fixtures for the shortlisted clubs</summary><p id="checklist-note" class="source-note"></p><div id="fixture-sources" class="source-grid"></div></details>
+      <p class="source-note">A round date is not a confirmed kickoff. TV scheduling, cup ties, international breaks and postponements can move games. Check the actual venue, ticket sale and last train back before committing to travel.</p>
     </section>
 
-    <!-- Tab 3: Derbies & Big Matches -->
-    <section id="tab-matches" class="tab-panel" role="tabpanel">
-      <div class="section-header">
-        <div>
-          <h2>🔥 I Grandi Derby del Calcio Italiano</h2>
-          <p>Rivalità secolari che dividono città intere e accendono la passione dei tifosi</p>
-        </div>
-      </div>
-
-      <div id="matches-grid" class="matches-grid">
-        <!-- Dynamically populated via JS -->
-      </div>
+    <section id="routes" aria-labelledby="routes-title">
+      <div class="section-header"><div><p class="eyebrow">03 / THE JOURNEY AROUND IT</p><h2 id="routes-title">Nine ways to make a trip of it</h2><p>Four requested routes, plus five alternatives. One main base, an anchor match, and room for a slow afternoon.</p></div></div>
+      <div class="season-guide"><p><strong>October</strong>Riviera cycling and lake walks.</p><p><strong>November</strong>Emilia food towns or Turin museums.</p><p><strong>December</strong>Sicily for a milder city break, not guaranteed sunshine.</p></div>
+      <div id="routes-grid" class="routes-grid"></div>
     </section>
 
-    <!-- Tab 4: History & Scudetto Leaderboard -->
-    <section id="tab-history" class="tab-panel" role="tabpanel">
-      <div class="section-header">
-        <div>
-          <h2>🏆 Storia & Albo d'Oro</h2>
-          <p>La distribuzione dei titoli di Campione d'Italia dal 1898 ad oggi</p>
-        </div>
-      </div>
-
-      <div class="history-container">
-        <div class="history-card">
-          <h3 style="font-size: 1.15rem; margin-bottom: 1.25rem;">Classifica Titoli Nazionali (Scudetti)</h3>
-          <div id="scudetto-bars">
-            <!-- Dynamically populated via JS -->
-          </div>
-        </div>
-
-        <div class="history-card">
-          <h3 style="font-size: 1.15rem; margin-bottom: 1.25rem;">La Cultura del Calcio Italiano</h3>
-          <div class="history-text">
-            <p>
-              In Italia, il calcio non è semplicemente uno sport: è un rito laico settimanale che attraversa generazioni, definisce l'identità civica e scandisce la vita quotidiana da Nord a Sud.
-            </p>
-            <div class="culture-highlight">
-              "Il calcio è l'ultima rappresentazione sacra del nostro tempo. È rito nel fondo, anche se è evasione."
-              <br><strong style="font-size: 0.8rem; color: #94a3b8;">— Pier Paolo Pasolini</strong>
-            </div>
-            <p>
-              Dal celebre <em>Catenaccio</em> di Nereo Rocco e Helenio Herrera fino alle rivoluzioni tattiche di Arrigo Sacchi e del gioco di posizione moderno, l'Italia è sempre stata considerata la cattedrale dell'intelligenza tattica applicata al pallone.
-            </p>
-            <p>
-              Ogni dieci Scudetti vinti, un club italiano ha il diritto di applicare sulla propria maglia una prestigiosa <strong>Stella d'Oro al Merito Sportivo</strong>: Juventus ne vanta 3, Inter 2, e Milan 1.
-            </p>
-          </div>
-        </div>
-      </div>
+    <section id="booking" class="booking" aria-labelledby="booking-title">
+      <p class="eyebrow">BEFORE ANYONE BOOKS</p><h2 id="booking-title">Match first. Tickets next. Then the journey.</h2>
+      <ol><li>Agree on a route and check a home fixture for the correct season. Keep a second local club in reserve.</li><li>Confirm the opponent, stadium, day and kickoff with the club. Buy only through club-authorised ticket channels; check named-ticket and ID requirements.</li><li>Search flights from Stockholm for your actual dates. A suggested airport does not imply a nonstop flight. Check baggage and airport transfer time.</li><li>For four adults, request two twin rooms with four separate beds. Choose a walkable base near the station and allow a weatherproof day.</li><li>Leave a buffer after the match and before the flight. Check winter ferry services, trail conditions and the mid-December rail timetable change.</li></ol>
+      <div class="resource-links"><a href="https://www.swedavia.com/arlanda/">Stockholm Arlanda</a><a href="https://www.flysas.com/">SAS flight search</a><a href="https://www.norwegian.com/">Norwegian flight search</a><a href="https://www.trenitalia.com/en.html">Trenitalia timetables</a><a href="https://www.italotreno.com/en">Italo trains</a></div>
     </section>
-
+    <noscript><div class="notice"><h2>JavaScript is needed for the planner</h2><p>Enable JavaScript to view the team shortlist, route details and calendar filters. For match schedules, consult <a href="https://www.legaseriea.it/">Serie A</a>, <a href="https://www.legab.it/">Serie B</a>, <a href="https://www.lega-pro.com/">Serie C</a> and <a href="https://seried.lnd.it/">Serie D</a>.</p></div></noscript>
   </main>
-
-  <!-- Modal for Club Details -->
-  <div id="club-modal" class="modal-overlay" aria-hidden="true">
-    <div class="modal-box">
-      <button id="modal-close-btn" class="modal-close" aria-label="Chiudi finestra">&times;</button>
-      <div id="modal-content"></div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-top">
-        <div>
-          <strong style="color: #fff; font-size: 1rem;">Calcio in Italia</strong>
-          <p style="color: var(--text-dim); font-size: 0.8rem; margin-top: 0.2rem;">
-            Demo showcase ospitata con GitHub Pages.
-          </p>
-        </div>
-        <a href="https://github.com/niklaslind/calcio_in_italia" target="_blank" rel="noopener noreferrer" class="github-link">
-          <svg height="18" width="18" viewBox="0 0 16 16" fill="currentColor">
-            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-          </svg>
-          Repository GitHub
-        </a>
-      </div>
-      <p class="footer-copy">
-        &copy; 2026 Calcio in Italia. Realizzato con passione per il calcio italiano.
-      </p>
-    </div>
-  </footer>
-
-  <script src="js/app.js"></script>
+  <footer><div class="footer-content"><p><strong>Calcio in Italia</strong><br>Four cousins. A shared plan. Autumn 2026.</p><a href="https://github.com/niklaslind/calcio_in_italia">Project on GitHub</a><a href="#page-title">Back to top &uarr;</a></div></footer>
 </body>
 </html>
