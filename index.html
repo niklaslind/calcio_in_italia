@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calcio in Italia | Il Portale del Calcio Italiano</title>
+  <meta name="description" content="Esplora la passione, le squadre, la classifica e la storia del calcio italiano. Serie A, trofei e grandi rivalità.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22 width=%2232%22 height=%2232%22><text y=%2226%22 font-size=%2226%22>⚽</text></svg>">
+</head>
+<body>
+
+  <!-- Tricolore Accent Top Bar -->
+  <div class="tricolore-bar">
+    <div class="tricolore-green"></div>
+    <div class="tricolore-white"></div>
+    <div class="tricolore-red"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <div class="brand-icon">⚽</div>
+        <div>
+          <div class="brand-title">CALCIO IN <span>ITALIA</span></div>
+          <span class="nav-tagline">Il Gioco Più Bello Del Mondo</span>
+        </div>
+      </a>
+      <div class="nav-badges">
+        <span class="live-badge">
+          <span class="live-dot"></span>
+          Serie A 2026/27
+        </span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="hero-pill">
+        <span>🇮🇹</span>
+        <span>Passione, Tattica, Tradizione & Leggenda</span>
+      </div>
+      <h1>
+        L'Essenza del <span class="hero-highlight">Calcio Italiano</span>
+      </h1>
+      <p>
+        Dalla nebbia di San Siro al calore del Maradona: vivi l'atmosfera autentica della Serie A, i grandi derby, le squadre storiche e l'albo d'oro del campionato più tattico del mondo.
+      </p>
+
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="stat-number">20</span>
+          <span class="stat-label">Club di Serie A</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">4</span>
+          <span class="stat-label">Mondiali Vinti</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">12</span>
+          <span class="stat-label">Coppe Campioni / UCL</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">126+</span>
+          <span class="stat-label">Anni di Storia</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="container">
+    
+    <!-- Tab Controls & Search -->
+    <div class="tabs-wrapper">
+      <div class="tabs-list" role="tablist">
+        <button class="tab-btn active" data-tab="tab-standings" role="tab" aria-selected="true">📊 Classifica</button>
+        <button class="tab-btn" data-tab="tab-clubs" role="tab" aria-selected="false">🛡️ Squadre</button>
+        <button class="tab-btn" data-tab="tab-matches" role="tab" aria-selected="false">🔥 Grandi Derby</button>
+        <button class="tab-btn" data-tab="tab-history" role="tab" aria-selected="false">🏆 Albo d'Oro</button>
+      </div>
+
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="club-search" class="search-input" placeholder="Cerca squadra o città...">
+      </div>
+    </div>
+
+    <!-- Tab 1: Standings -->
+    <section id="tab-standings" class="tab-panel active" role="tabpanel">
+      <div class="section-header">
+        <div>
+          <h2>📊 Classifica Serie A</h2>
+          <p>Riepilogo posizioni, punti e forma recente del massimo campionato italiano</p>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-responsive">
+          <table class="standings-table">
+            <thead>
+              <tr>
+                <th style="width: 40px;">Pos</th>
+                <th>Squadra</th>
+                <th>G</th>
+                <th>V</th>
+                <th>N</th>
+                <th>P</th>
+                <th>DR</th>
+                <th>Pt</th>
+                <th>Forma</th>
+              </tr>
+            </thead>
+            <tbody id="standings-body">
+              <!-- Dynamically populated via JS -->
+            </tbody>
+          </table>
+        </div>
+        <div class="table-legend">
+          <div class="legend-item">
+            <span class="legend-dot legend-ucl"></span>
+            <span>1-4: UEFA Champions League</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot legend-uel"></span>
+            <span>5-6: UEFA Europa League / Conference</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot legend-rel"></span>
+            <span>18-20: Zona Retrocessione Serie B</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 2: Clubs Showcase -->
+    <section id="tab-clubs" class="tab-panel" role="tabpanel">
+      <div class="section-header">
+        <div>
+          <h2>🛡️ Squadre in Evidenza</h2>
+          <p>I club più iconici del calcio italiano con trofei, stadi e curiosità storiche</p>
+        </div>
+      </div>
+
+      <div id="clubs-grid" class="clubs-grid">
+        <!-- Dynamically populated via JS -->
+      </div>
+    </section>
+
+    <!-- Tab 3: Derbies & Big Matches -->
+    <section id="tab-matches" class="tab-panel" role="tabpanel">
+      <div class="section-header">
+        <div>
+          <h2>🔥 I Grandi Derby del Calcio Italiano</h2>
+          <p>Rivalità secolari che dividono città intere e accendono la passione dei tifosi</p>
+        </div>
+      </div>
+
+      <div id="matches-grid" class="matches-grid">
+        <!-- Dynamically populated via JS -->
+      </div>
+    </section>
+
+    <!-- Tab 4: History & Scudetto Leaderboard -->
+    <section id="tab-history" class="tab-panel" role="tabpanel">
+      <div class="section-header">
+        <div>
+          <h2>🏆 Storia & Albo d'Oro</h2>
+          <p>La distribuzione dei titoli di Campione d'Italia dal 1898 ad oggi</p>
+        </div>
+      </div>
+
+      <div class="history-container">
+        <div class="history-card">
+          <h3 style="font-size: 1.15rem; margin-bottom: 1.25rem;">Classifica Titoli Nazionali (Scudetti)</h3>
+          <div id="scudetto-bars">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </div>
+
+        <div class="history-card">
+          <h3 style="font-size: 1.15rem; margin-bottom: 1.25rem;">La Cultura del Calcio Italiano</h3>
+          <div class="history-text">
+            <p>
+              In Italia, il calcio non è semplicemente uno sport: è un rito laico settimanale che attraversa generazioni, definisce l'identità civica e scandisce la vita quotidiana da Nord a Sud.
+            </p>
+            <div class="culture-highlight">
+              "Il calcio è l'ultima rappresentazione sacra del nostro tempo. È rito nel fondo, anche se è evasione."
+              <br><strong style="font-size: 0.8rem; color: #94a3b8;">— Pier Paolo Pasolini</strong>
+            </div>
+            <p>
+              Dal celebre <em>Catenaccio</em> di Nereo Rocco e Helenio Herrera fino alle rivoluzioni tattiche di Arrigo Sacchi e del gioco di posizione moderno, l'Italia è sempre stata considerata la cattedrale dell'intelligenza tattica applicata al pallone.
+            </p>
+            <p>
+              Ogni dieci Scudetti vinti, un club italiano ha il diritto di applicare sulla propria maglia una prestigiosa <strong>Stella d'Oro al Merito Sportivo</strong>: Juventus ne vanta 3, Inter 2, e Milan 1.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal for Club Details -->
+  <div id="club-modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-box">
+      <button id="modal-close-btn" class="modal-close" aria-label="Chiudi finestra">&times;</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-top">
+        <div>
+          <strong style="color: #fff; font-size: 1rem;">Calcio in Italia</strong>
+          <p style="color: var(--text-dim); font-size: 0.8rem; margin-top: 0.2rem;">
+            Demo showcase ospitata con GitHub Pages.
+          </p>
+        </div>
+        <a href="https://github.com/niklaslind/calcio_in_italia" target="_blank" rel="noopener noreferrer" class="github-link">
+          <svg height="18" width="18" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+          Repository GitHub
+        </a>
+      </div>
+      <p class="footer-copy">
+        &copy; 2026 Calcio in Italia. Realizzato con passione per il calcio italiano.
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
